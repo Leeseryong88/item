@@ -1,5 +1,6 @@
 
 import React, { useState, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ImageUploader } from './components/ImageUploader';
@@ -91,6 +92,7 @@ const App: React.FC = () => {
         )}
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 };
