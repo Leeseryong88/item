@@ -17,7 +17,7 @@ interface LanguageContextType {
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 const fetchTranslations = async (lang: Language): Promise<Translations> => {
-  const path = `locales/${lang}.json`; // Changed path to be relative
+  const path = `/locales/${lang}.json`; // Use absolute path from public root
   console.log(`Fetching translations for ${lang} from ${path}`);
   try {
     const response = await fetch(path);
@@ -39,7 +39,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [language, setLanguageState] = useState<Language>(() => {
     const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('appLanguage') as Language : null;
     const validLanguages: Language[] = ['en', 'ko', 'ja'];
-    return storedLang && validLanguages.includes(storedLang) ? storedLang : 'en';
+    return storedLang && validLanguages.includes(storedLang) ? storedLang : 'ko';
   });
   const [translations, setTranslations] = useState<Translations>({});
   const [isLoadingTranslations, setIsLoadingTranslations] = useState<boolean>(true);
