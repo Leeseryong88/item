@@ -17,7 +17,7 @@ interface LanguageContextType {
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 const fetchTranslations = async (lang: Language): Promise<Translations> => {
-  const path = `./locales/${lang}.json`; // Changed path to be relative
+  const path = `locales/${lang}.json`; // Changed path to be relative
   console.log(`Fetching translations for ${lang} from ${path}`);
   try {
     const response = await fetch(path);

@@ -26,5 +26,7 @@
     "paths": {
       "@/*" :  ["./*"]
     }
-  }
+  },
+  "include": ["src", "components", "hooks", "contexts", "services", "utils", "types.ts", "App.tsx", "index.tsx", "vite-env.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
