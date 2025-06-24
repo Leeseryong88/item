@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useEffect, useCallback } from 'react';
 
-export type Language = 'en' | 'ko' | 'ja'; // Added 'ja'
+export type Language = 'en' | 'ko' | 'ja' | 'zh'; // Added 'ja' and 'zh'
 
 interface Translations {
   [key: string]: string | Translations;
@@ -38,7 +38,7 @@ const fetchTranslations = async (lang: Language): Promise<Translations> => {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('appLanguage') as Language : null;
-    const validLanguages: Language[] = ['en', 'ko', 'ja'];
+    const validLanguages: Language[] = ['en', 'ko', 'ja', 'zh'];
     return storedLang && validLanguages.includes(storedLang) ? storedLang : 'ko';
   });
   const [translations, setTranslations] = useState<Translations>({});

@@ -5,6 +5,7 @@
   "header.language.english": "English",
   "header.language.korean": "Korean",
   "header.language.japanese": "Japanese",
+  "header.language.chinese": "Chinese",
 
   "uploader.dragDrop": "Drag & Drop Game Item Image",
   "uploader.browse": "or click to browse (PNG, JPG, WEBP)",
