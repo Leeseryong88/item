@@ -35,9 +35,9 @@ export const Header: React.FC = () => {
               className="appearance-none bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer pr-8"
               aria-label={t('header.language.selectLabel')}
             >
-              <option value="en">{t('header.language.english')}</option>
-              <option value="ko">{t('header.language.korean')}</option>
-              <option value="ja">{t('header.language.japanese')}</option>
+              <option value="en">English</option>
+              <option value="ko">한국어</option>
+              <option value="ja">日本語</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
