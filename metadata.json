@@ -1,0 +1,8 @@
+{
+  "name": "Game Item Analyzer",
+  "description": "Upload an image of a game item to get an AI-powered analysis of its properties, effects, and usage guidance using Gemini API.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}
