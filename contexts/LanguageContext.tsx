@@ -39,7 +39,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [language, setLanguageState] = useState<Language>(() => {
     const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('appLanguage') as Language : null;
     const validLanguages: Language[] = ['en', 'ko', 'ja', 'zh'];
-    return storedLang && validLanguages.includes(storedLang) ? storedLang : 'ko';
+    return storedLang && validLanguages.includes(storedLang) ? storedLang : 'en';
   });
   const [translations, setTranslations] = useState<Translations>({});
   const [isLoadingTranslations, setIsLoadingTranslations] = useState<boolean>(true);
