@@ -21,7 +21,13 @@
     "Hmm... Is this a new item?",
     "Wait, this is quite interesting!",
     "I've seen this somewhere before...",
-    "Ah, this type I know!"
+    "Ah, this type I know!",
+    "Whoa? What an unusual thing!",
+    "Could this be a rare item?",
+    "Wow, this looks different!",
+    "Hmm.. I'm getting strange vibes...",
+    "Never seen this design before?",
+    "Ooh, this looks extraordinary!"
   ],
   "loading.funMessages.phase2": [
     "Oh, it has some weight to it!",
@@ -29,7 +35,13 @@
     "Nice grip feel?",
     "Hmm... better than expected!",
     "This texture... feels premium!",
-    "Definitely feels different!"
+    "Definitely feels different!",
+    "Wow, this balance is amazing!",
+    "Great feel in the hand?",
+    "This texture... something special!",
+    "Pretty solid feeling!",
+    "Hmm... more refined than I thought?",
+    "Never felt this kind of material before?"
   ],
   "loading.funMessages.phase3": [
     "Wait a minute... this is...",
@@ -37,7 +49,13 @@
     "Hmm... something suspicious here...",
     "No way, is this really...?",
     "Just a moment... let me check...",
-    "Oh my, this is more than..."
+    "Oh my, this is more than...",
+    "Huh? That's weird... something...",
+    "Gasp! Could this be...?",
+    "No way, this must be...",
+    "Wait, is this pattern perhaps...",
+    "Uh... this is kinda strange?",
+    "Huh? This is different than expected?"
   ],
   "loading.funMessages.phase4": [
     "Wow, this is absolutely amazing!",
@@ -45,7 +63,13 @@
     "Finally figured out what this is!",
     "Oh wow! Much more than expected...",
     "Perfect! Analysis finished!",
-    "Results are in!"
+    "Results are in!",
+    "Oh~ This is really a great item!",
+    "Whoa! These stats are incredible!",
+    "Wow! This is truly special!",
+    "Totally lucky! Found something good!",
+    "Awesome~ This is a real treasure!",
+    "Analysis results are ready! Get excited!"
   ],
 
   "error.analysisFailedTitle": "Analysis Failed",
