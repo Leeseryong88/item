@@ -14,7 +14,39 @@
   "uploader.inputAccessibilityLabel": "游戏物品图片上传器",
 
   "loading.analyzing": "正在分析物品...",
-  "loading.waitMessage": "AI 正在检查您的物品，请稍候。",
+  "loading.waitMessage": "AI正在检查您的物品。请稍等片刻。",
+  "loading.funMessages.phase1": [
+    "这是什么？",
+    "哦？看起来很特别...",
+    "嗯...是新物品吗？",
+    "等等，这个很有趣！",
+    "我在哪里见过...",
+    "啊，这种类型我知道！"
+  ],
+  "loading.funMessages.phase2": [
+    "哦，很有份量！",
+    "这个重量感...有点意思！",
+    "手感不错？",
+    "嗯...比预想的要好！",
+    "这个质感...很高级！",
+    "摸起来确实不一样！"
+  ],
+  "loading.funMessages.phase3": [
+    "等一下...这个是...",
+    "诶？等等...这该不会是...",
+    "嗯...有点可疑...",
+    "不会吧，这真的是...？",
+    "稍等...让我确认一下...",
+    "哎呀，这比想象中..."
+  ],
+  "loading.funMessages.phase4": [
+    "哇，这真的太棒了！",
+    "分析完成！结果很有趣",
+    "终于搞清楚是什么了！",
+    "这个！比预期的要...",
+    "完美！分析结束！",
+    "结果出来了！"
+  ],
 
   "error.analysisFailedTitle": "分析失败",
   "error.tryAgainButton": "重试",

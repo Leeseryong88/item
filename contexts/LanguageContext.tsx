@@ -3,7 +3,7 @@ import React, { createContext, useState, ReactNode, useEffect, useCallback } fro
 export type Language = 'en' | 'ko' | 'ja' | 'zh'; // Added 'ja' and 'zh'
 
 interface Translations {
-  [key: string]: string | Translations;
+  [key: string]: string | string[] | Translations;
 }
 
 interface LanguageContextType {
@@ -11,7 +11,7 @@ interface LanguageContextType {
   setLanguage: (language: Language) => void;
   translations: Translations;
   isLoadingTranslations: boolean;
-  t: (key: string, params?: Record<string, string | number>) => string;
+  t: (key: string, params?: Record<string, string | number>) => string | string[];
 }
 
 export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -75,7 +75,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     }
   };
 
-  const t = useCallback((key: string, params?: Record<string, string | number>): string => {
+  const t = useCallback((key: string, params?: Record<string, string | number>): string | string[] => {
     if (isLoadingTranslations && Object.keys(translations).length === 0) {
       return key;
     }
@@ -93,9 +93,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
       return key; 
     }
 
+    // Handle array values (for multiple messages)
+    if (Array.isArray(value)) {
+      return value;
+    }
+
     // Ensure the found value is a string, not another object (which would indicate an incomplete key for nested structures, though not used here).
     if (typeof value === 'object' && value !== null) {
-      console.warn(`Key "${key}" resolved to an object, not a string, for language "${language}". This is unexpected for flat JSON. Returning key.`);
+      console.warn(`Key "${key}" resolved to an object, not a string or array, for language "${language}". This is unexpected for flat JSON. Returning key.`);
       return key;
     }
 

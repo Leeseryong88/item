@@ -13,8 +13,40 @@
   "uploader.instructions": "Upload an image of your game item. The AI will analyze its stats, effects, and provide usage tips. For best results, use clear, well-lit screenshots.",
   "uploader.inputAccessibilityLabel": "Game item image uploader",
 
-  "loading.analyzing": "Analyzing Item...",
-  "loading.waitMessage": "The AI is inspecting your item. This might take a moment.",
+  "loading.analyzing": "Analyzing item...",
+  "loading.waitMessage": "The AI is reviewing your item. Please wait a moment.",
+  "loading.funMessages.phase1": [
+    "What's this?",
+    "Oh? This looks special...",
+    "Hmm... Is this a new item?",
+    "Wait, this is quite interesting!",
+    "I've seen this somewhere before...",
+    "Ah, this type I know!"
+  ],
+  "loading.funMessages.phase2": [
+    "Oh, it has some weight to it!",
+    "This heft... there's something here!",
+    "Nice grip feel?",
+    "Hmm... better than expected!",
+    "This texture... feels premium!",
+    "Definitely feels different!"
+  ],
+  "loading.funMessages.phase3": [
+    "Wait a minute... this is...",
+    "Huh? Hold on... could this be...",
+    "Hmm... something suspicious here...",
+    "No way, is this really...?",
+    "Just a moment... let me check...",
+    "Oh my, this is more than..."
+  ],
+  "loading.funMessages.phase4": [
+    "Wow, this is absolutely amazing!",
+    "Analysis complete! The results are fascinating",
+    "Finally figured out what this is!",
+    "Oh wow! Much more than expected...",
+    "Perfect! Analysis finished!",
+    "Results are in!"
+  ],
 
   "error.analysisFailedTitle": "Analysis Failed",
   "error.tryAgainButton": "Try Again",
