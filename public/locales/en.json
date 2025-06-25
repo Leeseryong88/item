@@ -11,6 +11,7 @@
   "uploader.browse": "or click to browse (PNG, JPG, WEBP)",
   "uploader.releaseToUpload": "Release to Upload!",
   "uploader.instructions": "Upload an image of your game item. The AI will analyze its stats, effects, and provide usage tips. For best results, use clear, well-lit screenshots.",
+  "uploader.mobileSupport": "📱 Mobile friendly!",
   "uploader.inputAccessibilityLabel": "Game item image uploader",
 
   "loading.analyzing": "Analyzing item...",
@@ -101,7 +102,7 @@
   "itemDisplay.toggleRawText.show": "Show Raw Extracted Text",
   "itemDisplay.toggleRawText.hide": "Hide Raw Extracted Text",
 
-  "footer.demoDisclaimer": "This is a demo application. Item analysis may not always be accurate.",
+  "footer.demoDisclaimer": "Item analysis is AI-generated and may not always be accurate. Please use as reference only.",
 
   "gemini.error.apiKeyMissingUser": "Gemini API Key is not configured. Please contact the administrator.",
   "gemini.error.parsingErrorUser": "Could not understand the AI's response. The raw response might contain more details.",

@@ -11,6 +11,7 @@
   "uploader.browse": "或点击浏览 (PNG, JPG, WEBP)",
   "uploader.releaseToUpload": "释放以上传！",
   "uploader.instructions": "上传您的游戏物品图片。AI 将分析其属性、效果并提供使用建议。为了获得最佳效果，请使用清晰明亮的截图。",
+  "uploader.mobileSupport": "📱 支持手机！",
   "uploader.inputAccessibilityLabel": "游戏物品图片上传器",
 
   "loading.analyzing": "正在分析物品...",
@@ -101,7 +102,7 @@
   "itemDisplay.toggleRawText.show": "显示原始提取文本",
   "itemDisplay.toggleRawText.hide": "隐藏原始提取文本",
 
-  "footer.demoDisclaimer": "这是一个演示应用程序。物品分析可能并不总是准确的。",
+  "footer.demoDisclaimer": "AI判断的物品信息，物品分析可能并不总是准确的，请仅作为参考使用。",
   
   "gemini.error.apiKeyMissingUser": "Gemini API 密钥未配置。请联系管理员。",
   "gemini.error.parsingErrorUser": "无法理解 AI 的响应。原始响应可能包含更多详细信息。",

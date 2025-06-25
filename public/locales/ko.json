@@ -11,6 +11,7 @@
   "uploader.browse": "또는 클릭하여 찾아보기 (PNG, JPG, WEBP)",
   "uploader.releaseToUpload": "놓아서 업로드!",
   "uploader.instructions": "게임 아이템의 이미지를 업로드하세요. AI가 능력치, 효과를 분석하고 사용 팁을 제공합니다. 최상의 결과를 얻으려면 선명하고 밝은 스크린샷을 사용하세요.",
+  "uploader.mobileSupport": "📱 모바일에서도 사용 가능합니다!",
   "uploader.inputAccessibilityLabel": "게임 아이템 이미지 업로더",
 
   "loading.analyzing": "아이템 분석 중...",
@@ -101,7 +102,7 @@
   "itemDisplay.toggleRawText.show": "원본 추출 텍스트 보기",
   "itemDisplay.toggleRawText.hide": "원본 추출 텍스트 숨기기",
 
-  "footer.demoDisclaimer": "이것은 데모 애플리케이션입니다. 아이템 분석이 항상 정확하지 않을 수 있습니다.",
+  "footer.demoDisclaimer": "AI로 판단하는 아이템 정보로 아이템 분석이 항상 정확하지 않을 수 있으며 참고용으로 사용하여 주시기 바랍니다.",
   
   "gemini.error.apiKeyMissingUser": "Gemini API 키가 설정되지 않았습니다. 관리자에게 문의하세요.",
   "gemini.error.parsingErrorUser": "AI의 응답을 이해할 수 없었습니다. 원시 응답에 자세한 내용이 있을 수 있습니다.",

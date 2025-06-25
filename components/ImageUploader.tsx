@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from 'react';
 import { UploadIcon } from './icons/UploadIcon';
 import { useTranslation } from '../hooks/useTranslation';
@@ -83,6 +82,9 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, dis
       </div>
       <p className="mt-6 text-center text-gray-400 text-sm max-w-md mx-auto">
         {t('uploader.instructions')}
+      </p>
+      <p className="mt-2 text-center text-purple-400 text-sm font-medium">
+        {t('uploader.mobileSupport')}
       </p>
     </div>
   );

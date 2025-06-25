@@ -11,6 +11,7 @@
   "uploader.browse": "またはクリックして参照 (PNG, JPG, WEBP)",
   "uploader.releaseToUpload": "離してアップロード！",
   "uploader.instructions": "ゲームアイテムの画像をアップロードしてください。AIがステータス、効果を分析し、使用のヒントを提供します。最良の結果を得るには、鮮明で明るいスクリーンショットを使用してください。",
+  "uploader.mobileSupport": "📱 モバイル対応！",
   "uploader.inputAccessibilityLabel": "ゲームアイテム画像アップローダー",
 
   "loading.analyzing": "アイテム分析中...",
@@ -101,7 +102,7 @@
   "itemDisplay.toggleRawText.show": "抽出された生テキストを表示",
   "itemDisplay.toggleRawText.hide": "抽出された生テキストを非表示",
 
-  "footer.demoDisclaimer": "これはデモアプリケーションです。アイテム分析は常に正確であるとは限りません。",
+  "footer.demoDisclaimer": "AIによる判断のアイテム情報でアイテム分析は常に正確ではない可能性があり、参考用としてご利用ください。",
   
   "gemini.error.apiKeyMissingUser": "Gemini APIキーが設定されていません。管理者に連絡してください。",
   "gemini.error.parsingErrorUser": "AIの応答を理解できませんでした。生の応答には詳細が含まれている可能性があります。",
