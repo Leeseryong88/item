@@ -20,8 +20,13 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // 여기에 실제 폼 제출 로직을 구현할 수 있습니다
-    alert(t('pages.contact.form.successMessage'));
+    
+    // mailto 링크로 이메일 클라이언트 열기
+    const subject = `[아이템 인사이트 AI] ${formData.subject} - ${formData.name}님의 문의`;
+    const body = `이름: ${formData.name}\n이메일: ${formData.email}\n문의 유형: ${formData.subject}\n\n메시지:\n${formData.message}`;
+    const mailtoLink = `mailto:airiska2025@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.open(mailtoLink);
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
