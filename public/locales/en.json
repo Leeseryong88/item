@@ -72,6 +72,20 @@
     "Awesome~ This is a real treasure!",
     "Analysis results are ready! Get excited!"
   ],
+  "loading.funMessages.phase5": [
+    "Preparing expert report...",
+    "Generating detailed analysis report...",
+    "Compiling final assessment...",
+    "Organizing comprehensive analysis...",
+    "Finalizing value assessment report...",
+    "Documenting usage guidelines...",
+    "Completing professional analysis report...",
+    "Conducting final review and report completion...",
+    "Organizing detailed analysis data...",
+    "Preparing expert opinion document...",
+    "Finalizing comprehensive evaluation report...",
+    "Completing final analysis results..."
+  ],
 
   "error.analysisFailedTitle": "Analysis Failed",
   "error.tryAgainButton": "Try Again",

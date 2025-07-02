@@ -9,7 +9,7 @@ export const LoadingSpinner: React.FC = () => {
 
   useEffect(() => {
     // 각 단계별 지속 시간 (밀리초)
-    const phaseDurations = [2000, 2500, 2000, 1500]; // 총 8초
+    const phaseDurations = [2000, 2500, 2000, 1500, 3000]; // 총 11초 (5번째 단계 추가)
     
     const getRandomMessage = (phase: number): string => {
       const messages = t(`loading.funMessages.phase${phase}`) as string[];
@@ -25,8 +25,8 @@ export const LoadingSpinner: React.FC = () => {
     const timeouts: NodeJS.Timeout[] = [];
     let totalTime = 0;
 
-    // 각 단계별로 타이머 설정
-    for (let phase = 1; phase <= 4; phase++) {
+    // 각 단계별로 타이머 설정 (5단계로 확장)
+    for (let phase = 1; phase <= 5; phase++) {
       const timeout = setTimeout(() => {
         // 페이드 아웃
         setFadeClass('opacity-0');
@@ -54,7 +54,7 @@ export const LoadingSpinner: React.FC = () => {
       <div 
         className="w-16 h-16 border-8 border-dashed rounded-full animate-spin border-purple-500" 
         role="status" 
-        aria-label={t('loading.analyzing')}
+        aria-label={typeof t('loading.analyzing') === 'string' ? t('loading.analyzing') as string : (t('loading.analyzing') as string[])[0]}
       ></div>
       
       <div className="text-center space-y-2">
@@ -72,7 +72,7 @@ export const LoadingSpinner: React.FC = () => {
         
         {/* 단계 표시 점들 */}
         <div className="flex justify-center space-x-2 pt-4">
-          {[1, 2, 3, 4].map((phase) => (
+          {[1, 2, 3, 4, 5].map((phase) => (
             <div
               key={phase}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
