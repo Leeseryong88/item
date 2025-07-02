@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode, useEffect, useCallback } from 'react';
 
-export type Language = 'en' | 'ko' | 'ja' | 'zh'; // Added 'ja' and 'zh'
+export type Language = 'en' | 'ko' | 'ja' | 'zh' | 'fr' | 'es' | 'ar'; // Added more languages
 
 interface Translations {
   [key: string]: string | string[] | Translations;
@@ -38,7 +38,7 @@ const fetchTranslations = async (lang: Language): Promise<Translations> => {
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('appLanguage') as Language : null;
-    const validLanguages: Language[] = ['en', 'ko', 'ja', 'zh'];
+    const validLanguages: Language[] = ['en', 'ko', 'ja', 'zh', 'fr', 'es', 'ar'];
     const defaultLang = 'en'; // 기본 언어를 영어로 명시적 설정
     
     // 초기 로드 시 HTML lang 속성을 기본 언어로 설정
