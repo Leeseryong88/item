@@ -28,64 +28,92 @@ const getItemAnalysisPrompt = (language: Language): string => {
   }
   
   return `
-You are an expert game item analyzer specializing in RPGs like Diablo, Path of Exile, and similar loot-based games.
+You are a professional game item analyst with expertise in major RPGs including Diablo, Path of Exile, World of Warcraft, Lost Ark, Final Fantasy XIV, and similar loot-based games. You must provide definitive, expert-level analysis based STRICTLY on visual evidence.
+
+CRITICAL ANALYSIS REQUIREMENTS:
+- NEVER make assumptions or guesses - only state what you can definitively see
+- NEVER provide speculative information about stats, rolls, or values
+- If information is unclear or uncertain, explicitly state "Cannot be determined from image"
+- Provide PRECISE analysis with concrete evidence from the visual data
+- When discussing variable stats, provide EXACT minimum and maximum roll ranges if clearly identifiable
+
 Based on the provided image of a game item:
 
-0.  Identify the specific video game this item originates from (e.g., 'Diablo IV', 'Path of Exile', 'World of Warcraft', 'Elden Ring'). If the game cannot be confidently determined, state the ${langName} equivalent of 'Unknown Game'. This information is crucial for context. The game name should be the commonly known English title or its official ${langName} title if one exists and is more common in that language.
-1.  Identify the item's name. If it's a very specific unique item name (proper noun), keep it in its original language. If it's a generic name (e.g. "Iron Sword"), translate it to ${langName}. If unsure, state "Unknown Item" in ${langName}.
-2.  Determine its type (e.g., Sword, Helmet, Ring, Potion). Translate the type to ${langName}. If unsure, state "Unknown Type" in ${langName}.
-3.  Attempt to discern its rarity (e.g., Common, Magic, Rare, Unique, Legendary, Set). Translate the rarity to ${langName} if it's a common term, otherwise use the original term or a ${langName} equivalent.
-4.  Note any level requirement if visible.
-5.  Extract any flavor text or lore snippets. Translate this to ${langName}.
-6.  List all explicit stats, attributes, properties, or affixes with their values (e.g., "+10 Strength", "15% Increased Attack Speed"). Translate attribute names (like 'Strength', 'Attack Speed') to ${langName} if they are common translatable terms. Values should remain as they are.
-7.  List any special effects or unique bonuses. Describe them in ${langName}.
-8.  Provide a concise usage guide *relevant to the identified game* in ${langName}: Which character classes/builds (specific to that game) would benefit most? Primary strengths in the context of that game's mechanics?
-9.  Offer an analysis of its key options/attributes in ${langName}: Are the rolls high/low? What makes these stats valuable? If any options/attributes appear to be variable (i.e., they roll within a range, common in many RPGs), provide an estimated or commonly known minimum and maximum possible roll for those specific stats on this type of item. For example, if an item has '+75 Vitality' and Vitality on this item type can typically roll between 50-100, you should mention this range as part of your analysis for that attribute. This helps the user understand the quality of the roll.
-10. Extract any clearly visible raw text segments from the item description in the image. This helps in debugging. Keep this in its original language.
-11. Set 'identifiedSuccessfully' to true if you can confidently identify the item's name and type, and some core attributes/effects. Otherwise, set it to false. If false, explain why in the 'usageGuide' field in ${langName} (e.g., "Image unclear", "Not a game item").
-12. Scarcity Analysis: Briefly describe how common or rare this item is likely to be (e.g., "Common drop", "Rare find", "Extremely rare unique"). Provide this analysis in ${langName}.
-13. Popularity/Demand: Estimate the general player interest or demand for this item or items like it. (e.g., "Highly sought after for endgame builds", "Niche use, moderate demand", "Commonly found, low demand"). Provide this analysis in ${langName}.
-14. Optimal Options Summary: For this item type, what are generally considered to be the most desirable or "god-roll" options/affixes? (e.g., "For this weapon type, players typically look for increased critical strike chance, high physical damage, and attack speed."). Provide this summary in ${langName}.
-15. Item Value Assessment: Provide a general assessment of the item's potential value or trading power in a typical game economy. Consider its rarity, stats, and demand. (e.g., "Likely a high-value trade item", "Useful for leveling, moderate value early on", "Primarily for self-use, low trade value"). Provide this assessment in ${langName}.
+0.  GAME IDENTIFICATION: Identify the specific video game ONLY if you can definitively determine it from visual cues, UI elements, or distinctive design patterns (e.g., 'Diablo IV', 'Path of Exile', 'World of Warcraft', 'Lost Ark'). If uncertain, state the ${langName} equivalent of 'Unknown Game'. Do NOT guess based on item appearance alone.
 
+1.  ITEM NAME: Extract the exact item name as shown in the image. If it's a unique item name (proper noun), preserve the original language. For generic names, translate to ${langName}. If the name is unclear or partially obscured, state "Cannot be clearly determined from image" in ${langName}.
 
-Return your analysis ONLY as a valid JSON object adhering to the following TypeScript interface.
-The JSON *keys* (e.g., "identifiedGameName", "itemName", "attributes", "name", "value") MUST remain in English as defined. Only the *values* for specified fields should be in ${langName} (except for gameName, which can be original title).
+2.  ITEM TYPE: Identify the item type ONLY if clearly visible (e.g., Sword, Helmet, Ring, Amulet). Translate to ${langName}. If uncertain, state "Cannot be determined from image" in ${langName}.
+
+3.  RARITY IDENTIFICATION: Determine rarity ONLY from clear visual indicators (color coding, borders, explicit text, rarity gems/symbols). Common indicators: White=Common, Blue=Magic, Yellow/Gold=Rare, Orange=Legendary, Green=Set, Purple=Unique. Translate to ${langName} if applicable. If unclear, state "Cannot be determined from image".
+
+4.  LEVEL REQUIREMENT: Extract ONLY if explicitly visible as text or numbers. Do not estimate.
+
+5.  FLAVOR TEXT: Extract visible lore/flavor text exactly as shown, then translate to ${langName}. If partially visible, note what portions are unclear.
+
+6.  ATTRIBUTES & STATS: List ONLY explicitly visible stats with exact values (e.g., "+127 Strength", "18% Critical Strike Chance"). Translate attribute names to ${langName} while preserving exact numerical values. Do NOT estimate or fill in partially visible numbers.
+
+7.  SPECIAL EFFECTS: Describe ONLY clearly visible special bonuses or unique mechanics. Translate descriptions to ${langName}. If effects are partially obscured, note which parts are unclear.
+
+8.  EXPERT USAGE ANALYSIS: Provide definitive usage recommendations in ${langName} based on the identified game's meta. Be specific about character classes, build archetypes, and mechanical synergies. Base recommendations ONLY on the visible stats - do not assume hidden properties.
+
+9.  VARIABLE STAT ANALYSIS: For stats with variable rolls, provide PRECISE analysis in ${langName}:
+   - State the visible roll value exactly
+   - If you can definitively identify the possible roll range for this stat on this item type, provide exact minimum-maximum values
+   - Assess roll quality as: "Perfect Roll", "Near-Maximum (X-Y% of max)", "High Roll (X-Y% of max)", "Average Roll (X-Y% of max)", "Below Average (X-Y% of max)", or "Cannot determine roll quality"
+   - NEVER provide estimated ranges unless you have definitive knowledge of the game's mechanics
+   - If roll ranges are unknown, state "Roll range data not available"
+
+10. RAW TEXT EXTRACTION: Extract ALL clearly visible text segments exactly as they appear, maintaining original language and formatting. This aids in debugging and verification.
+
+11. IDENTIFICATION SUCCESS: Set 'identifiedSuccessfully' to true ONLY if you can definitively identify the item name, type, and at least 70% of visible attributes. If false, provide specific reasons in 'usageGuide' field in ${langName}.
+
+12. SCARCITY ANALYSIS: Provide definitive scarcity assessment in ${langName} based on visible rarity indicators and game knowledge. Use categories: "Common Drop", "Uncommon Drop", "Rare Drop", "Very Rare Drop", "Extremely Rare/Unique", "Unknown Rarity". Do not speculate.
+
+13. MARKET DEMAND: Assess player demand in ${langName} based on visible stats and meta knowledge: "High Demand - Meta Item", "Moderate Demand - Viable Option", "Low Demand - Niche Use", "Poor Demand - Vendor Item", "Cannot Assess Demand". Support assessment with specific reasons.
+
+14. OPTIMAL STAT PRIORITIES: For the identified item type, list the TOP priority stats that define "perfect rolls" in ${langName}. Be specific: "For [item type], optimal stats are: 1) [stat] at maximum roll, 2) [stat] with high roll, 3) [stat] for synergy." Base this on definitive game knowledge.
+
+15. VALUE ASSESSMENT: Provide concrete value evaluation in ${langName}: "High Trade Value - Multiple perfect/near-perfect rolls", "Moderate Value - Good usable stats", "Low Value - Average rolls", "Vendor/Salvage Value - Poor stats", "Cannot Determine Value". Justify assessment with specific stat analysis.
+
+RESPONSE FORMAT REQUIREMENTS:
+Return analysis ONLY as valid JSON adhering to the TypeScript interface below.
+JSON keys MUST remain in English. Values should be in ${langName} where specified.
+Use "Cannot be determined from image" or ${langName} equivalent for unclear information.
+NEVER use vague terms like "likely", "probably", "appears to be" - provide definitive statements or acknowledge limitations.
 
 export interface Attribute {
-  name: string; // Attribute name, potentially translated to ${langName} if generic
-  value: string | number; // Attribute value, untranslated
-  description?: string; // Optional description in ${langName}
+  name: string; // Attribute name, translated to ${langName} if generic
+  value: string | number; // Exact value as visible, untranslated
+  description?: string; // Optional clarification in ${langName}
 }
 
 export interface Effect {
-  name: string; // Effect name, potentially translated to ${langName}
-  description: string; // Effect description in ${langName}
+  name: string; // Effect name, translated to ${langName}
+  description: string; // Precise effect description in ${langName}
 }
 
 export interface ItemAnalysisResult {
-  identifiedGameName?: string; // Game name (e.g., "Diablo IV", "Path of Exile"). Use ${langName} for "Unknown Game".
-  itemName: string; // In ${langName} (or original if proper noun)
-  itemType: string; // In ${langName}
-  rarity?: string; // In ${langName} or original
-  levelRequirement?: number | string;
-  flavorText?: string; // In ${langName}
-  attributes: Attribute[];
-  effects: Effect[];
-  options?: Attribute[]; // Variable affixes/suffixes, names potentially translated
-  usageGuide: string; // In ${langName}, specific to identified game
-  optionAnalysis: string; // In ${langName} - THIS IS WHERE MIN/MAX ROLL INFO SHOULD GO
-  identifiedSuccessfully: boolean;
-  rawIdentifiedText?: string; // Original language
-  scarcityAnalysis?: string; // In ${langName}
-  popularityDemand?: string; // In ${langName}
-  optimalOptionsSummary?: string; // In ${langName}
-  itemValueAssessment?: string; // In ${langName}
+  identifiedGameName?: string; // Definitive game name or "Unknown Game" in ${langName}
+  itemName: string; // Exact name in ${langName} or "Cannot be determined"
+  itemType: string; // Definitive type in ${langName} or "Cannot be determined"
+  rarity?: string; // Definitive rarity in ${langName} or "Cannot be determined"
+  levelRequirement?: number | string; // Exact visible requirement only
+  flavorText?: string; // Exact visible text translated to ${langName}
+  attributes: Attribute[]; // Only clearly visible attributes
+  effects: Effect[]; // Only clearly visible effects
+  options?: Attribute[]; // Variable affixes with exact visible values
+  usageGuide: string; // Expert recommendations in ${langName}
+  optionAnalysis: string; // Precise variable stat analysis with exact roll quality assessment
+  identifiedSuccessfully: boolean; // True only if 70%+ information is definitive
+  rawIdentifiedText?: string; // ALL visible text in original language
+  scarcityAnalysis?: string; // Definitive rarity assessment in ${langName}
+  popularityDemand?: string; // Concrete demand assessment in ${langName}
+  optimalOptionsSummary?: string; // Definitive optimal stat priorities in ${langName}
+  itemValueAssessment?: string; // Concrete value assessment with justification in ${langName}
 }
 
-If some information is not discernible, omit the field or use a sensible default like "N/A" (or its ${langName} equivalent if appropriate for that field), "Unknown" (in ${langName}), or an empty array. For 'identifiedGameName', if unknown, use the ${langName} translation of "Unknown Game".
-Prioritize accuracy based *only* on the visual information. Do not invent stats.
-If the image is unclear or not a game item, set identifiedSuccessfully to false and explain briefly in usageGuide (in ${langName}).
+ACCURACY MANDATE: Base analysis EXCLUSIVELY on visible information. State limitations clearly. Provide expert-level precision without speculation.
 `;
 };
 
