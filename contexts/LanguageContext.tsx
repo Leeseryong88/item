@@ -39,7 +39,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   const [language, setLanguageState] = useState<Language>(() => {
     const storedLang = typeof localStorage !== 'undefined' ? localStorage.getItem('appLanguage') as Language : null;
     const validLanguages: Language[] = ['en', 'ko', 'ja', 'zh'];
-    return storedLang && validLanguages.includes(storedLang) ? storedLang : 'en';
+    const defaultLang = 'en'; // 기본 언어를 영어로 명시적 설정
+    
+    // 초기 로드 시 HTML lang 속성을 기본 언어로 설정
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = storedLang && validLanguages.includes(storedLang) ? storedLang : defaultLang;
+    }
+    
+    return storedLang && validLanguages.includes(storedLang) ? storedLang : defaultLang;
   });
   const [translations, setTranslations] = useState<Translations>({});
   const [isLoadingTranslations, setIsLoadingTranslations] = useState<boolean>(true);
@@ -61,7 +68,15 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
     setTranslations(newTranslations);
     setIsLoadingTranslations(false);
+    
+    // HTML lang 속성 업데이트
     document.documentElement.lang = lang;
+    
+    // 페이지 타이틀 동적 업데이트
+    if (newTranslations && newTranslations['header.title']) {
+      const pageTitle = `${newTranslations['header.title']} - Game Item Analysis Tool`;
+      document.title = pageTitle;
+    }
   }, []); // loadTranslations itself is stable as it doesn't depend on component scope variables that change
 
   useEffect(() => {
