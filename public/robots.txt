@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml 
+# Disallow crawling of temporary or sensitive paths
+Disallow: /assets/
+Disallow: /*.json$
+Disallow: /manifest.json
+
+# Allow important files
+Allow: /favicon.svg
+Allow: /sitemap.xml
+
+# Sitemap location
+Sitemap: https://leeseryong88.github.io/item/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1 
