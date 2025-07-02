@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
         {/* Copyright and Disclaimer */}
         <div className="space-y-2">
           <p className="text-gray-500 text-xs">
-            © 2024 아이템 인사이트 AI. All rights reserved.
+            © 2025 아이템 인사이트 AI. All rights reserved.
           </p>
           <p className="text-gray-500 text-xs">
             {t('footer.demoDisclaimer')}

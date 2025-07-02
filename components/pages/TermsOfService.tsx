@@ -103,7 +103,7 @@ export const TermsOfService: React.FC = () => {
 
         <div className="mt-8 p-4 bg-purple-800 bg-opacity-30 rounded-lg">
           <p className="text-center text-purple-200">
-            <strong>시행일: 2024년 1월 1일</strong>
+            <strong>시행일: 2025년 7월 2일</strong>
           </p>
         </div>
       </div>

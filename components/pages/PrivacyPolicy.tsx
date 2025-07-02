@@ -87,7 +87,7 @@ export const PrivacyPolicy: React.FC = () => {
         <section className="mb-8 p-6 bg-gray-800 bg-opacity-50 rounded-xl shadow-lg">
           <h2 className="text-2xl font-semibold text-purple-300 mb-4">8. 개인정보처리방침 변경</h2>
           <p className="text-gray-300 leading-relaxed">
-            이 개인정보처리방침은 2024년 1월 1일부터 적용됩니다. 개인정보처리방침이 변경되는 경우 웹사이트 공지사항을 통하여 공지할 것입니다.
+            이 개인정보처리방침은 2025년 7월 2일부터 적용됩니다. 개인정보처리방침이 변경되는 경우 웹사이트 공지사항을 통하여 공지할 것입니다.
           </p>
         </section>
       </div>
