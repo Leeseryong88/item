@@ -11,7 +11,7 @@ Allow: /favicon.svg
 Allow: /sitemap.xml
 
 # Sitemap location
-Sitemap: https://leeseryong88.github.io/item/sitemap.xml
+Sitemap: https://www.temscanner.com/sitemap.xml
 
 # Crawl-delay for better server performance
 Crawl-delay: 1 
